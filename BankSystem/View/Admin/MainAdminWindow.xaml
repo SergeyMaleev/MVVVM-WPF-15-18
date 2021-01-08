@@ -1,0 +1,128 @@
+﻿<Page x:Class="BankSystem.View.Admin.MainAdminWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:BankSystem.View.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="600"
+      d:DesignWidth="960"
+     DataContext="{Binding Source={StaticResource vmLocator}, Path=MainAdminWindowViewModel}">
+
+    <Grid Background="#9A9EA3AD">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="197*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="White">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="30"
+                    ShadowDepth="0"
+                    Color="#FFADABAB" />
+            </Border.Effect>
+
+            <StackPanel>
+                <TextBlock
+                    Margin="0,40,0,10"
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="#FF353434"
+                    Text="Имя сотрудника" />
+                <Border
+                    Width="100"
+                    Height="100"
+                    Background="#FFCCE0E0"
+                    CornerRadius="200">
+                    <Border.Effect>
+                        <DropShadowEffect
+                            BlurRadius="10"
+                            ShadowDepth="0"
+                            Color="#FFCECBCB" />
+                    </Border.Effect>
+                    <Image Source="orb-icon-5.png" />
+
+                </Border>
+
+                <Button
+                    Width="180"
+                    Height="60"
+                    Margin="5,30,5,0"
+                    HorizontalAlignment="Center"
+                    Command="{Binding ListClientPageCommand}"
+                    FontSize="16"
+                    Style="{StaticResource MaterialDesignFlatDarkBgButton}">
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="40"
+                            Height="25"
+                            HorizontalAlignment="Center"
+                            Kind="accountcash" />
+                        <TextBlock Text="Клиенты" />
+
+                    </StackPanel>
+
+                </Button>
+
+
+                <Button
+                    Width="180"
+                    Height="60"
+                    Margin="5,30,5,0"
+                    HorizontalAlignment="Center"
+                    Command="{Binding ListCreditPageCommand}"
+                    FontSize="16"
+                    Style="{StaticResource MaterialDesignFlatDarkBgButton}">
+
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="40"
+                            Height="25"
+                            HorizontalAlignment="Center"
+                            Kind="creditcardcheck" />
+                        <TextBlock Text="Выданые кредиты" />
+
+                    </StackPanel>
+
+                </Button>
+                <Button
+                    Width="180"
+                    Height="60"
+                    Margin="5,30,5,0"
+                    HorizontalAlignment="Center"
+                    Command="{Binding ListDepositPageCommand}"
+                    FontSize="16"
+                    Style="{StaticResource MaterialDesignFlatDarkBgButton}">
+                    <StackPanel>
+                        <materialDesign:PackIcon
+                            Width="40"
+                            Height="25"
+                            HorizontalAlignment="Center"
+                            Kind="cashmultiple" />
+                        <TextBlock Text="Открытые вклады" />
+
+                    </StackPanel>
+
+                </Button>
+
+                <Button
+                    Width="100"
+                    Margin="5,50,5,0"
+                    HorizontalAlignment="Center"
+                    Command="{Binding DouwnPageCommand}"
+                    Content="Выход"
+                    FontSize="14"
+                    Style="{StaticResource MaterialDesignFlatButton}" />
+
+            </StackPanel>
+
+        </Border>
+        <Grid Grid.Column="1">
+            <Frame Content="{Binding CurrenPageAdmin}" NavigationUIVisibility="Hidden" />
+        </Grid>
+
+    </Grid>
+</Page>

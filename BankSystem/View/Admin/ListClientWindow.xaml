@@ -1,0 +1,73 @@
+﻿<Page x:Class="BankSystem.View.Admin.ListClientWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BankSystem.View.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="700"
+      DataContext="{Binding Source={StaticResource vmLocator}, Path=ListClientWindowViewModel}"
+      >
+
+    <Grid>
+        <Border Grid.Row="2"
+                Margin="15"
+            Background="#FFE5F5F5"
+            CornerRadius="20">
+            <StackPanel>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="BlueViolet"
+                    Text="Список клиентов" />
+
+                <DataGrid                
+                Margin="10"
+                AlternatingRowBackground="LightGray"
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding Clients, UpdateSourceTrigger=PropertyChanged}"               
+                VerticalGridLinesBrush="DarkGray"
+                    FontSize="9">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                        Width="90"
+                        Binding="{Binding Path=DateTime, StringFormat=dd.MM.yyyy}"
+                        Header="Регистрация"                       
+                        IsReadOnly="True" />
+                        <DataGridTextColumn
+                        Width="60"
+                        Binding="{Binding Path=Credit.Status}"
+                        Header="Статус"
+                        IsReadOnly="True" />
+                        <DataGridTextColumn
+                        Width="120"
+                        Binding="{Binding Path=NameOrganization}"
+                        Header="Организация"
+                        IsReadOnly="True" />
+                        <DataGridTextColumn
+                        Width="80"
+                        Binding="{Binding Path=FirstName}"
+                        Header="Имя"
+                        IsReadOnly="True" />
+                        <DataGridTextColumn
+                        Width="100"
+                        Binding="{Binding Path=LastName}"
+                        Header="Фамилия"
+                        IsReadOnly="True" />
+                        <DataGridTextColumn
+                        Width="60"
+                        Binding="{Binding Path=Age}"
+                        Header="Возраст"
+                        IsReadOnly="False" />
+                        <DataGridTextColumn
+                        Width="100"
+                        Binding="{Binding Path=PersonalAccount}"
+                        Header="Лицевой счет"
+                        IsReadOnly="True" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,62 @@
+﻿<Page x:Class="BankSystem.View.Admin.ListCreditWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BankSystem.View.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="700"
+      DataContext="{Binding Source={StaticResource vmLocator}, Path=ListCreditWindowViewModel}">
+
+    <Grid>
+        <Border Grid.Row="2"
+                Margin="15"
+            Background="#FFE5F5F5"
+            CornerRadius="20">
+            <StackPanel>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="BlueViolet"
+                    Text="Список выданых кредитов" />
+
+                <DataGrid                
+                Margin="10"
+                AlternatingRowBackground="LightGray"
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding ExistingLoans, UpdateSourceTrigger=PropertyChanged}"              
+                VerticalGridLinesBrush="DarkGray"
+                    FontSize="9">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                        Width="120"
+                        Binding="{Binding Path=DateTime, StringFormat=dd.MM.yyyy}"
+                        Header="Дата выдачи"                       
+                        IsReadOnly="True" />
+                        <DataGridTextColumn
+                        Width="120"
+                        Binding="{Binding Path=LoanAmount}"
+                        Header="Сумма"
+                        IsReadOnly="True" />
+                        <DataGridTextColumn
+                        Width="120"
+                        Binding="{Binding Path=LoanPeriod}"
+                        Header="Срок выплаты"
+                        IsReadOnly="True" />
+                        <DataGridTextColumn
+                        Width="150"
+                        Binding="{Binding Path=CreditPayment}"
+                        Header="Ежемесячный платеж"
+                        IsReadOnly="True" />
+                        <DataGridTextColumn
+                        Width="100"
+                        Binding="{Binding Path=ClientID}"
+                        Header="ID клиента"
+                        IsReadOnly="True" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

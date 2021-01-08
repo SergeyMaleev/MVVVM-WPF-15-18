@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="BankSystem.View.ExitWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BankSystem.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ExitWindow"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    DataContext="{Binding Source={StaticResource vmLocator}, Path=ExitWindowViewModel}"
+    mc:Ignorable="d">
+
+    <Grid Background="#999EA3AD">
+        <Border
+            Width="400"
+            Height="250"
+            Background="White"
+            CornerRadius="15">
+            <Border.Effect>
+                <DropShadowEffect
+                    BlurRadius="30"
+                    ShadowDepth="0"
+                    Color="LightGray" />
+            </Border.Effect>
+            <StackPanel Margin="0,30,0,0" HorizontalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="30"
+                    FontWeight="Bold"
+                    Text="Выход" />
+                <TextBlock
+                    Margin="0,5,0,0"
+                    HorizontalAlignment="Center"
+                    FontSize="12"
+                    FontWeight="SemiBold"
+                    Text="Вы действительно хотите выйдти?" />
+                <TextBlock
+                    Margin="0,50,0,0"
+                    HorizontalAlignment="Center"
+                    FontSize="12"                    
+                    Text="Если нет нажмите просто нажмите пункт меню" />
+                <DockPanel Margin="0,5,0,0">
+                    <Button
+                        Width="120"
+                        HorizontalAlignment="Center"
+                        Command="{Binding ExitPageCommand}"
+                        Content="Выйдти"
+                        FontSize="14"
+                        Style="{StaticResource MaterialDesignFlatDarkBgButton}" />
+                    
+                </DockPanel>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
